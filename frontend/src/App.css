@@ -11,10 +11,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .App-input {
   font-size: 1.5rem;
 }
@@ -31,13 +27,4 @@
 .App-error {
   color: red;
   margin-top: 1rem;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
