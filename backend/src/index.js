@@ -4,8 +4,10 @@ const main = async () => {
   const app = express();
   app.use(express.json());
 
-  app.get("/", async (_, res) => {
-    res.json({ message: "Hello from Express :)" });
+  app.post("/", async (req, res) => {
+    const { numericString } = req.body;
+
+    res.json({ response: numericString });
   });
 
   app.listen(4000, () => {
