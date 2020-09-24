@@ -14,11 +14,31 @@
 .App-input {
   font-size: 1.5rem;
   padding: 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid grey;
+  color: white;
+  transition: 0.25s ease;
+}
+
+.App-input:focus {
+  outline: 0;
+  border-color: white;
 }
 
 .App-submit {
   font-size: 1.5rem;
   margin-top: 1rem;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  transition: 0.25s ease;
+}
+
+.App-submit:hover {
+  background: white;
+  color: #282c34;
 }
 
 .App-results {
