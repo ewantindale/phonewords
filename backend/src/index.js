@@ -7,6 +7,13 @@ const main = async () => {
   app.post("/", (req, res) => {
     const { numericString } = req.body;
 
+    if (numericString.length < 1) {
+      res
+        .status(400)
+        .json({ response: "Input string must be at least 1 character" });
+      return;
+    }
+
     const isNumber = /^\d+$/.test(numericString);
 
     if (!isNumber) {
