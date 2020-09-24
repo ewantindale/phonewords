@@ -4,7 +4,7 @@ const main = async () => {
   const app = express();
   app.use(express.json());
 
-  app.post("/", async (req, res) => {
+  app.post("/", (req, res) => {
     const { numericString } = req.body;
 
     const isNumber = /^\d+$/.test(numericString);
@@ -16,7 +16,9 @@ const main = async () => {
       return;
     }
 
-    res.json({ response: numericString });
+    const number = numericString.split("").map((n) => parseInt(n));
+
+    res.json({ response: number });
   });
 
   app.listen(4000, () => {
