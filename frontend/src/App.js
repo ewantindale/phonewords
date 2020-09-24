@@ -52,7 +52,7 @@ const App = () => {
         {results && results.length > 0 && (
           <div className="App-results">
             <h2>Results: </h2>
-            {results.map((r, index) => r + " ")}
+            {results.map((r) => r + " ")}
           </div>
         )}
       </header>
