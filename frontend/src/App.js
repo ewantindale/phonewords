@@ -35,7 +35,7 @@ const App = () => {
           <input
             value={input}
             onChange={handleInputChange}
-            type="number"
+            type="text"
             className="App-input"
           />
           <div>
