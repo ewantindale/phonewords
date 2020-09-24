@@ -39,16 +39,16 @@ const main = async () => {
     if (numericString.length < 1) {
       res
         .status(400)
-        .json({ message: "Input string must be at least 1 character" });
+        .json({ message: "The input string must be at least 1 character" });
       return;
     }
 
-    const isNumber = /^\d+$/.test(numericString);
+    const isNumber = /^[2-9]+$/.test(numericString);
 
     if (!isNumber) {
       res
         .status(400)
-        .json({ message: "Input string can only contain numbers" });
+        .json({ message: "The input string can only contain numbers 2-9" });
       return;
     }
 
