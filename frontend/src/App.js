@@ -33,8 +33,10 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Phonewords Calculator</h1>
-        <p>Enter a string containing only numbers between 2 and 9</p>
+        <h1>Phonewords Generator</h1>
+        <p className="App-description">
+          Enter a string containing only numbers between 2 and 9
+        </p>
 
         <form onSubmit={submitForm}>
           <input
