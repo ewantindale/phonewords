@@ -9,6 +9,7 @@ const App = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios({
         method: "post",
@@ -43,7 +44,12 @@ const App = () => {
             </button>
           </div>
         </form>
-        <div>{results && results.map((r, index) => r + ", ")}</div>
+        {results && results.length > 0 && (
+          <div className="App-results">
+            <h2>Results: </h2>
+            {results.map((r, index) => r + " ")}
+          </div>
+        )}
       </header>
     </div>
   );
