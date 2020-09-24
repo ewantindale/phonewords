@@ -28,6 +28,11 @@
   margin-top: 1rem;
 }
 
+.App-error {
+  color: red;
+  margin-top: 1rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

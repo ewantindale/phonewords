@@ -10,6 +10,9 @@ const App = () => {
   const submitForm = async (e) => {
     e.preventDefault();
 
+    setResults([]);
+    setError("");
+
     try {
       const response = await axios({
         method: "post",
@@ -19,7 +22,7 @@ const App = () => {
 
       setResults(response.data);
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.message);
     }
   };
 
@@ -44,6 +47,7 @@ const App = () => {
             </button>
           </div>
         </form>
+        {error && <div className="App-error">Error: {error}</div>}
         {results && results.length > 0 && (
           <div className="App-results">
             <h2>Results: </h2>
