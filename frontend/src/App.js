@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>Phonewords Calculator</h3>
+        <h1>Phonewords Calculator</h1>
         <form onSubmit={submitForm}>
           <input
             value={input}
