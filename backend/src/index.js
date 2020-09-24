@@ -13,17 +13,17 @@ const numberToLetters = [
   "wxyz",
 ];
 
-const generateWords = (number, curr, output, n, result) => {
+const generateWords = (numbers, curr, output, n, result) => {
   if (curr === n) {
     result.push(output.join(""));
     return;
   }
 
-  for (let i = 0; i < numberToLetters[number[curr]].length; i++) {
-    output.push(numberToLetters[number[curr]][i]);
-    generateWords(number, curr + 1, output, n, result);
+  for (let i = 0; i < numberToLetters[numbers[curr]].length; i++) {
+    output.push(numberToLetters[numbers[curr]][i]);
+    generateWords(numbers, curr + 1, output, n, result);
     output.pop();
-    if (number[curr] === 0 || number[curr] === 1) {
+    if (numbers[curr] === 0 || numbers[curr] === 1) {
       return;
     }
   }
@@ -52,11 +52,11 @@ const main = async () => {
       return;
     }
 
-    const number = numericString.split("").map((n) => parseInt(n));
+    const numbers = numericString.split("").map((n) => parseInt(n));
 
     let result = [];
 
-    generateWords(number, 0, [], number.length, result);
+    generateWords(numbers, 0, [], numbers.length, result);
 
     res.json({ response: result });
   });
