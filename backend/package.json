@@ -8,6 +8,9 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

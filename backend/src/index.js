@@ -5,7 +5,7 @@ const main = async () => {
   app.use(express.json());
 
   app.get("/", async (_, res) => {
-    res.json({ message: "Hello from Express" });
+    res.json({ message: "Hello from Express :)" });
   });
 
   app.listen(4000, () => {
