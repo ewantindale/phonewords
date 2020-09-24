@@ -39,7 +39,7 @@ const main = async () => {
     if (numericString.length < 1) {
       res
         .status(400)
-        .json({ response: "Input string must be at least 1 character" });
+        .json({ message: "Input string must be at least 1 character" });
       return;
     }
 
@@ -48,7 +48,7 @@ const main = async () => {
     if (!isNumber) {
       res
         .status(400)
-        .json({ response: "Input string can only contain numbers" });
+        .json({ message: "Input string can only contain numbers" });
       return;
     }
 
@@ -58,7 +58,7 @@ const main = async () => {
 
     generateWords(numbers, 0, [], numbers.length, result);
 
-    res.json({ response: result });
+    res.json(result);
   });
 
   app.listen(4000, () => {
