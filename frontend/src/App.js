@@ -16,7 +16,7 @@ const App = () => {
         data: { numericString: input },
       });
 
-      console.log(response);
+      setResults(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -43,6 +43,7 @@ const App = () => {
             </button>
           </div>
         </form>
+        <div>{results && results.map((r, index) => r + ", ")}</div>
       </header>
     </div>
   );
