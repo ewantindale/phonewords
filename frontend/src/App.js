@@ -35,6 +35,7 @@ const App = () => {
       <header className="App-header">
         <h1>Phonewords Calculator</h1>
         <p>Enter a string containing only numbers between 2 and 9</p>
+
         <form onSubmit={submitForm}>
           <input
             value={input}
@@ -48,7 +49,9 @@ const App = () => {
             </button>
           </div>
         </form>
+
         {error && <div className="App-error">Error: {error}</div>}
+
         {results && results.length > 0 && (
           <div className="App-results">
             <h2>Results: </h2>
