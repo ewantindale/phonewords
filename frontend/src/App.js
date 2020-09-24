@@ -34,6 +34,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <h1>Phonewords Calculator</h1>
+        <p>Enter a string containing only numbers between 2 and 9</p>
         <form onSubmit={submitForm}>
           <input
             value={input}
