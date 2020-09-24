@@ -42,6 +42,7 @@ const App = () => {
             onChange={handleInputChange}
             type="text"
             className="App-input"
+            placeholder="e.g. 23"
           />
           <div>
             <button type="submit" className="App-submit">
