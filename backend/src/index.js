@@ -7,6 +7,15 @@ const main = async () => {
   app.post("/", async (req, res) => {
     const { numericString } = req.body;
 
+    const isNumber = /^\d+$/.test(numericString);
+
+    if (!isNumber) {
+      res
+        .status(400)
+        .json({ response: "Input string can only contain numbers" });
+      return;
+    }
+
     res.json({ response: numericString });
   });
 
