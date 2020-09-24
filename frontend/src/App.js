@@ -8,6 +8,7 @@ const App = () => {
   const [error, setError] = useState("");
 
   const submitForm = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios({
         method: "post",
