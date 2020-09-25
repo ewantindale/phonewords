@@ -4,6 +4,7 @@ import "./App.css";
 
 const App = () => {
   const [input, setInput] = useState("");
+  const [filter, setFilter] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
 
@@ -17,7 +18,7 @@ const App = () => {
       const response = await axios({
         method: "post",
         url: "/",
-        data: { numericString: input },
+        data: { numericString: input, filter: filter },
       });
 
       setResults(response.data);
@@ -28,6 +29,10 @@ const App = () => {
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
+  };
+
+  const handleFilterChange = () => {
+    setFilter((filter) => !filter);
   };
 
   return (
@@ -46,6 +51,16 @@ const App = () => {
             className="App-input"
             placeholder="e.g. 23"
           />
+          <div className="App-filter">
+            <input
+              type="checkbox"
+              name="filter"
+              value={filter}
+              onChange={handleFilterChange}
+            />
+            Filter by word list
+          </div>
+
           <div>
             <button type="submit" className="App-submit">
               Generate Words

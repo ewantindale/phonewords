@@ -48,7 +48,7 @@ const main = async () => {
   app.use(express.json());
 
   app.post("/", (req, res) => {
-    const { numericString } = req.body;
+    const { numericString, filter } = req.body;
 
     if (numericString.length < 1) {
       res
@@ -72,9 +72,12 @@ const main = async () => {
 
     generateWords(numbers, 0, [], numbers.length, result);
 
-    const filtered_result = filterByDictionary(result);
-
-    res.json(filtered_result);
+    if (filter) {
+      const filtered_result = filterByDictionary(result);
+      res.json(filtered_result);
+    } else {
+      res.json(result);
+    }
   });
 
   app.listen(4000, () => {
