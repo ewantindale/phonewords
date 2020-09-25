@@ -7,12 +7,14 @@ const App = () => {
   const [filter, setFilter] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submitForm = async (e) => {
     e.preventDefault();
 
     setResults([]);
     setError("");
+    setLoading(true);
 
     try {
       const response = await axios({
@@ -25,6 +27,8 @@ const App = () => {
     } catch (error) {
       setError(error.response.data.message);
     }
+
+    setLoading(false);
   };
 
   const handleInputChange = (e) => {
@@ -62,13 +66,15 @@ const App = () => {
           </div>
 
           <div>
-            <button type="submit" className="App-submit">
+            <button type="submit" className="App-submit" disabled={loading}>
               Generate Words
             </button>
           </div>
         </form>
 
         {error && <div className="App-error">Error: {error}</div>}
+
+        {loading && <div class="App-spinner"></div>}
 
         {results && results.length > 0 && (
           <div className="App-results">
