@@ -1,5 +1,5 @@
 const express = require("express");
-const words_dictionary = require("../words_dictionary.json");
+const dictionary = require("../dictionary.json");
 
 const numberToLetters = [
   "",
@@ -18,7 +18,7 @@ const filterByDictionary = (words) => {
   const result = [];
 
   for (const w of words) {
-    if (words_dictionary[w]) {
+    if (dictionary[w]) {
       result.push(w);
     }
   }
