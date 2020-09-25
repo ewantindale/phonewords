@@ -26,7 +26,7 @@ const filterByDictionary = (words) => {
   return result;
 };
 
-const generateWords = async (numbers, current, output, inputLength, result) => {
+const generateWords = (numbers, current, output, inputLength, result) => {
   if (current === inputLength) {
     const word = output.join("");
     result.push(word);
