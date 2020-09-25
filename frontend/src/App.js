@@ -33,9 +33,9 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Phonewords Generator</h1>
+        <h1>Phonewords</h1>
         <p className="App-description">
-          Enter a string containing only numbers between 2 and 9
+          Enter a string containing only digits between 2 and 9
         </p>
 
         <form onSubmit={submitForm}>
