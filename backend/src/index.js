@@ -1,7 +1,5 @@
 const express = require("express");
-const fs = require("fs");
-
-const dictionary_location = "../words_alpha.txt";
+const words_dictionary = require("../words_dictionary.json");
 
 const numberToLetters = [
   "",
@@ -16,9 +14,22 @@ const numberToLetters = [
   "wxyz",
 ];
 
-const generateWords = (numbers, current, output, inputLength, result) => {
+const filterByDictionary = (words) => {
+  const result = [];
+
+  for (const w of words) {
+    if (words_dictionary[w]) {
+      result.push(w);
+    }
+  }
+
+  return result;
+};
+
+const generateWords = async (numbers, current, output, inputLength, result) => {
   if (current === inputLength) {
-    result.push(output.join(""));
+    const word = output.join("");
+    result.push(word);
     return;
   }
 
@@ -61,7 +72,9 @@ const main = async () => {
 
     generateWords(numbers, 0, [], numbers.length, result);
 
-    res.json(result);
+    const filtered_result = filterByDictionary(result);
+
+    res.json(filtered_result);
   });
 
   app.listen(4000, () => {
