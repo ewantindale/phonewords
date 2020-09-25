@@ -1,4 +1,7 @@
 const express = require("express");
+const fs = require("fs");
+
+const dictionary_location = "../words_alpha.txt";
 
 const numberToLetters = [
   "",
@@ -13,17 +16,17 @@ const numberToLetters = [
   "wxyz",
 ];
 
-const generateWords = (numbers, curr, output, n, result) => {
-  if (curr === n) {
+const generateWords = (numbers, current, output, inputLength, result) => {
+  if (current === inputLength) {
     result.push(output.join(""));
     return;
   }
 
-  for (let i = 0; i < numberToLetters[numbers[curr]].length; i++) {
-    output.push(numberToLetters[numbers[curr]][i]);
-    generateWords(numbers, curr + 1, output, n, result);
+  for (let i = 0; i < numberToLetters[numbers[current]].length; i++) {
+    output.push(numberToLetters[numbers[current]][i]);
+    generateWords(numbers, current + 1, output, inputLength, result);
     output.pop();
-    if (numbers[curr] === 0 || numbers[curr] === 1) {
+    if (numbers[current] === 0 || numbers[current] === 1) {
       return;
     }
   }
