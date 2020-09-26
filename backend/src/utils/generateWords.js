@@ -12,7 +12,7 @@ const numberToLetters = [
 ];
 
 const generateWords = (numbers) => {
-  let result = [];
+  const result = [];
 
   generateWordsUtil(numbers, 0, [], numbers.length, result);
 
