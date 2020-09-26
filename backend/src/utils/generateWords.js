@@ -11,7 +11,15 @@ const numberToLetters = [
   "wxyz",
 ];
 
-const generateWords = (numbers, current, output, inputLength, result) => {
+const generateWords = (numbers) => {
+  let result = [];
+
+  generateWordsUtil(numbers, 0, [], numbers.length, result);
+
+  return result;
+};
+
+const generateWordsUtil = (numbers, current, output, inputLength, result) => {
   if (current === inputLength) {
     const word = output.join("");
     result.push(word);
@@ -20,7 +28,7 @@ const generateWords = (numbers, current, output, inputLength, result) => {
 
   for (let i = 0; i < numberToLetters[numbers[current]].length; i++) {
     output.push(numberToLetters[numbers[current]][i]);
-    generateWords(numbers, current + 1, output, inputLength, result);
+    generateWordsUtil(numbers, current + 1, output, inputLength, result);
     output.pop();
     if (numbers[current] === 0 || numbers[current] === 1) {
       return;

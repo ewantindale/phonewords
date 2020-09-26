@@ -27,9 +27,7 @@ app.post("/", (req, res) => {
 
   const numbers = numericString.split("").map((n) => parseInt(n));
 
-  let result = [];
-
-  generateWords(numbers, 0, [], numbers.length, result);
+  const result = generateWords(numbers);
 
   if (filter) {
     const filtered_result = filterByDictionary(result, dictionary);
