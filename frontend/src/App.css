@@ -31,12 +31,12 @@
 
 .App-submit {
   font-size: 1.5rem;
-  margin-top: 1rem;
+  margin-left: 1rem;
   background: none;
   border: 1px solid white;
   color: white;
-  padding: 0.75rem 1.5rem;
   transition: 0.25s ease;
+  padding: 0.5rem;
 }
 
 .App-submit:hover {

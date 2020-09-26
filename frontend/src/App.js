@@ -48,13 +48,18 @@ const App = () => {
         </p>
 
         <form onSubmit={submitForm}>
-          <input
-            value={input}
-            onChange={handleInputChange}
-            type="text"
-            className="App-input"
-            placeholder="e.g. 23"
-          />
+          <div>
+            <input
+              value={input}
+              onChange={handleInputChange}
+              type="text"
+              className="App-input"
+              placeholder="e.g. 23"
+            />
+            <button type="submit" className="App-submit" disabled={loading}>
+              Generate Words
+            </button>
+          </div>
           <div className="App-filter">
             <input
               type="checkbox"
@@ -63,12 +68,6 @@ const App = () => {
               onChange={handleFilterChange}
             />
             Filter by word list
-          </div>
-
-          <div>
-            <button type="submit" className="App-submit" disabled={loading}>
-              Generate Words
-            </button>
           </div>
         </form>
 
