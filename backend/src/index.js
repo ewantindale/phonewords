@@ -14,7 +14,7 @@ const numberToLetters = [
   "wxyz",
 ];
 
-const filterByDictionary = (words) => {
+const filterByDictionary = (words, dictionary) => {
   const result = [];
 
   for (const w of words) {
@@ -72,7 +72,7 @@ app.post("/", (req, res) => {
   generateWords(numbers, 0, [], numbers.length, result);
 
   if (filter) {
-    const filtered_result = filterByDictionary(result);
+    const filtered_result = filterByDictionary(result, dictionary);
     res.json(filtered_result);
   } else {
     res.json(result);
