@@ -74,17 +74,23 @@ const App = () => {
 
         {error && <div className="App-error">Error: {error}</div>}
 
-        {loading && <div className="App-spinner"></div>}
-        <h2>Results: </h2>
-        {results && results.length > 0 && (
-          <div className="App-results">
-            {results.map((r, i) => (
-              <div key={i} className="word">
-                {r}
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="App-results-wrapper">
+          <h2>Results: </h2>
+          {loading && (
+            <div className="App-spinner-wrapper">
+              <div className="App-spinner"></div>
+            </div>
+          )}
+          {results && results.length > 0 && (
+            <div className="App-results">
+              {results.map((r, i) => (
+                <div key={i} className="word">
+                  {r}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </header>
     </div>
   );

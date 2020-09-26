@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-header {
@@ -7,7 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 0 1rem;
   color: white;
 }
 
@@ -45,6 +44,11 @@
   color: #282c34;
 }
 
+.App-results-wrapper {
+  border-top: 1px solid lightgrey;
+  margin-top: 1rem;
+}
+
 .App-results {
   margin-top: 1rem;
   width: 100%;
@@ -60,7 +64,8 @@
   margin: 0.5rem;
   background-color: lightgrey;
   color: black;
-  border-radius: 100%;
+  /* border-radius: 100%; */
+  box-shadow: 2px 5px 5px black;
 }
 
 .App-error {
@@ -70,6 +75,11 @@
 
 .App-filter {
   margin-top: 1rem;
+}
+
+.App-spinner-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .App-spinner {
