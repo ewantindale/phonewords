@@ -26,7 +26,7 @@ In a new terminal:
 ```
 cd frontend
 yarn
-yarn start
+yarn dev
 ```
 
 The app will now be running at http://localhost:3000
