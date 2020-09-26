@@ -30,3 +30,12 @@ yarn start
 ```
 
 The app will now be running at http://localhost:3000
+
+### Tests
+
+Some backend tests are included
+
+```
+cd backend
+yarn test
+```
