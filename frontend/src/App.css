@@ -30,18 +30,20 @@
 }
 
 .App-submit {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-left: 1rem;
-  background: none;
-  border: 1px solid white;
-  color: white;
   transition: 0.25s ease;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-transform: uppercase;
+  background: #656f85;
+  border: none;
+  color: white;
 }
 
 .App-submit:hover {
-  background: white;
-  color: #282c34;
+  background: #8d99b3;
 }
 
 .App-results-wrapper {
@@ -64,8 +66,8 @@
   margin: 0.5rem;
   background-color: lightgrey;
   color: black;
-  /* border-radius: 100%; */
   box-shadow: 2px 5px 5px black;
+  border: 1px solid lightgrey;
 }
 
 .App-error {
