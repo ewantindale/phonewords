@@ -74,12 +74,15 @@ const App = () => {
 
         {error && <div className="App-error">Error: {error}</div>}
 
-        {loading && <div class="App-spinner"></div>}
-
+        {loading && <div className="App-spinner"></div>}
+        <h2>Results: </h2>
         {results && results.length > 0 && (
           <div className="App-results">
-            <h2>Results: </h2>
-            {results.map((r) => r + " ")}
+            {results.map((r, i) => (
+              <div key={i} className="word">
+                {r}
+              </div>
+            ))}
           </div>
         )}
       </header>
