@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
+import styles from "./App.module.css";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -40,10 +40,10 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header className={styles.header}>
         <h1>Phonewords</h1>
-        <p className="App-description">
+        <p className={styles.description}>
           Enter a string containing only digits between 2 and 9
         </p>
 
@@ -53,14 +53,14 @@ const App = () => {
               value={input}
               onChange={handleInputChange}
               type="text"
-              className="App-input"
+              className={styles.input}
               placeholder="e.g. 23"
             />
-            <button type="submit" className="App-submit" disabled={loading}>
+            <button type="submit" className={styles.submit} disabled={loading}>
               Generate Words
             </button>
           </div>
-          <div className="App-filter">
+          <div className={styles.filter}>
             <input
               type="checkbox"
               name="filter"
@@ -71,19 +71,19 @@ const App = () => {
           </div>
         </form>
 
-        {error && <div className="App-error">Error: {error}</div>}
+        {error && <div className={styles.error}>Error: {error}</div>}
 
-        <div className="App-results-wrapper">
+        <div className={styles.resultsWrapper}>
           <h2>Results: </h2>
           {loading && (
-            <div className="App-spinner-wrapper">
-              <div className="App-spinner"></div>
+            <div className={styles.spinnerWrapper}>
+              <div className={styles.spinner}></div>
             </div>
           )}
           {results && results.length > 0 && (
-            <div className="App-results">
+            <div className={styles.results}>
               {results.map((r, i) => (
-                <div key={i} className="word">
+                <div key={i} className={styles.word}>
                   {r}
                 </div>
               ))}
