@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
 import { Word } from "./components/Word/Word";
+import { Numpad } from "./components/Numpad/Numpad";
 import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
 
 const App = () => {
@@ -18,18 +19,6 @@ const App = () => {
     setUseWordFilter((useWordFilter) => !useWordFilter);
   };
 
-  const numpadKeys = {
-    2: "abc",
-    3: "def",
-    4: "ghi",
-    5: "jkl",
-    6: "mno",
-    7: "pqrs",
-    8: "tuv",
-    9: "wxyz",
-    10: "CLEAR",
-  };
-
   return (
     <div className={styles.app}>
       <h1>Phonewords</h1>
@@ -37,24 +26,9 @@ const App = () => {
         <div className={styles.input}>
           <div className={styles.numericString}>{numericString}</div>
           <div className={styles.error}>{error && error}</div>
-          <div className={styles.numpad}>
-            {Object.keys(numpadKeys).map((num) => (
-              <button
-                key={num}
-                className={styles.button}
-                onClick={
-                  num < 10
-                    ? () => setNumericString((v) => v + num)
-                    : () => setNumericString("")
-                }
-                name={num}
-              >
-                {num < 10 ? <span className={styles.number}>{num}</span> : null}
 
-                <span className={styles.letters}>{numpadKeys[num]}</span>
-              </button>
-            ))}
-          </div>
+          <Numpad setNumericString={setNumericString} />
+
           <button
             type="submit"
             className={styles.submit}
