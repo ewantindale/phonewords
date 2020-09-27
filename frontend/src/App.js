@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
+import { Word } from "./components/Word/Word";
 import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
           <div className={styles.numpad}>
             {Object.keys(numpadKeys).map((num) => (
               <button
+                key={num}
                 className={styles.button}
                 onClick={
                   num < 10
@@ -85,9 +87,7 @@ const App = () => {
         {results && results.length > 0 && (
           <div className={styles.results}>
             {results.map((r, i) => (
-              <div key={i} className={styles.word}>
-                {r}
-              </div>
+              <Word key={i} value={r} />
             ))}
           </div>
         )}
