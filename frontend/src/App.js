@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
-import { Word } from "./components/Word/Word";
+
 import { Numpad } from "./components/Numpad/Numpad";
 import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
+import { Results } from "./components/Results/Results";
+import { InputField } from "./components/InputField/InputField";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -11,7 +13,6 @@ const App = () => {
   const [numericString, setNumericString] = useState("");
   const [useWordFilter, setUseWordFilter] = useState(false);
 
-  const results = useSelector((state) => state.phonewords.results);
   const loading = useSelector((state) => state.phonewords.loading);
   const error = useSelector((state) => state.phonewords.error);
 
@@ -24,7 +25,7 @@ const App = () => {
       <h1>Phonewords</h1>
       <div className={styles.inputWrapper}>
         <div className={styles.input}>
-          <div className={styles.numericString}>{numericString}</div>
+          <InputField numericString={numericString} />
           <div className={styles.error}>{error && error}</div>
 
           <Numpad setNumericString={setNumericString} />
@@ -51,21 +52,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className={styles.resultsWrapper}>
-        <h2>Results</h2>
-        {loading && (
-          <div className={styles.spinnerWrapper}>
-            <div className={styles.spinner}></div>
-          </div>
-        )}
-        {results && results.length > 0 && (
-          <div className={styles.results}>
-            {results.map((r, i) => (
-              <Word key={i} value={r} />
-            ))}
-          </div>
-        )}
-      </div>
+      <Results />
     </div>
   );
 };
