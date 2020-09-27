@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
-import {
-  fetchResultsAsync,
-  setNumericString,
-  toggleFilter,
-} from "./features/phonewords/phonewordsSlice";
+import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
 
 const App = () => {
   const dispatch = useDispatch();
