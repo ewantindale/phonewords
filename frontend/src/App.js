@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
 import {
@@ -10,23 +10,24 @@ import {
 const App = () => {
   const dispatch = useDispatch();
 
+  const [numericString, setNumericString] = useState("");
+  const [useWordFilter, setUseWordFilter] = useState(false);
+
   const results = useSelector((state) => state.phonewords.results);
   const loading = useSelector((state) => state.phonewords.loading);
-  const numericString = useSelector((state) => state.phonewords.numericString);
-  const useWordFilter = useSelector((state) => state.phonewords.useWordFilter);
   const error = useSelector((state) => state.phonewords.error);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchResultsAsync());
+    dispatch(fetchResultsAsync(numericString, useWordFilter));
   };
 
   const handleInputChange = (e) => {
-    dispatch(setNumericString(e.target.value));
+    setNumericString(e.target.value);
   };
 
   const handleFilterChange = () => {
-    dispatch(toggleFilter());
+    setUseWordFilter((useWordFilter) => !useWordFilter);
   };
 
   return (

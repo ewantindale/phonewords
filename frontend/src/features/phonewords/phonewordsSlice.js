@@ -4,19 +4,11 @@ import axios from "axios";
 export const phonewordsSlice = createSlice({
   name: "phonewords",
   initialState: {
-    numericString: "",
-    useWordFilter: false,
     error: "",
     loading: false,
     results: [],
   },
   reducers: {
-    toggleFilter: (state) => {
-      state.useWordFilter = !state.useWordFilter;
-    },
-    setNumericString: (state, action) => {
-      state.numericString = action.payload;
-    },
     fetchResultsStart: (state) => {
       state.loading = true;
       state.error = "";
@@ -35,17 +27,13 @@ export const phonewordsSlice = createSlice({
 });
 
 export const {
-  toggleFilter,
-  setNumericString,
   fetchResultsStart,
   fetchResultsSuccess,
   fetchResultsError,
 } = phonewordsSlice.actions;
 
-export const fetchResultsAsync = () => {
-  return async (dispatch, getState) => {
-    const state = getState();
-
+export const fetchResultsAsync = (numericString, useWordFilter) => {
+  return async (dispatch) => {
     dispatch(fetchResultsStart());
 
     try {
@@ -53,8 +41,8 @@ export const fetchResultsAsync = () => {
         method: "post",
         url: "/",
         data: {
-          numericString: state.phonewords.numericString,
-          filter: state.phonewords.useWordFilter,
+          numericString: numericString,
+          filter: useWordFilter,
         },
       });
       dispatch(fetchResultsSuccess(response.data));
