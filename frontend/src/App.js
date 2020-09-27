@@ -1,42 +1,32 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
+import {
+  fetchResultsAsync,
+  setNumericString,
+  toggleFilter,
+} from "./features/phonewords/phonewordsSlice";
 
 const App = () => {
-  const [input, setInput] = useState("");
-  const [filter, setFilter] = useState(false);
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const submitForm = async (e) => {
+  const results = useSelector((state) => state.phonewords.results);
+  const loading = useSelector((state) => state.phonewords.loading);
+  const numericString = useSelector((state) => state.phonewords.numericString);
+  const useWordFilter = useSelector((state) => state.phonewords.useWordFilter);
+  const error = useSelector((state) => state.phonewords.error);
+
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    setResults([]);
-    setError("");
-    setLoading(true);
-
-    try {
-      const response = await axios({
-        method: "post",
-        url: "/",
-        data: { numericString: input, filter: filter },
-      });
-
-      setResults(response.data);
-    } catch (error) {
-      setError(error.response.data.message);
-    }
-
-    setLoading(false);
+    dispatch(fetchResultsAsync());
   };
 
   const handleInputChange = (e) => {
-    setInput(e.target.value);
+    dispatch(setNumericString(e.target.value));
   };
 
   const handleFilterChange = () => {
-    setFilter((filter) => !filter);
+    dispatch(toggleFilter());
   };
 
   return (
@@ -47,10 +37,10 @@ const App = () => {
           Enter a string containing only digits between 2 and 9
         </p>
 
-        <form onSubmit={submitForm}>
+        <form onSubmit={handleFormSubmit}>
           <div>
             <input
-              value={input}
+              value={numericString}
               onChange={handleInputChange}
               type="text"
               className={styles.input}
@@ -64,7 +54,7 @@ const App = () => {
             <input
               type="checkbox"
               name="filter"
-              value={filter}
+              value={useWordFilter}
               onChange={handleFilterChange}
             />
             Filter by word list
