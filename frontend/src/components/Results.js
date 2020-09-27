@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styles from "./Results.module.css";
 import { Word } from "./Word";
 
-export const Results = React.memo(() => {
+export const Results = () => {
   const results = useSelector((state) => state.phonewords.results);
   const loading = useSelector((state) => state.phonewords.loading);
 
@@ -24,4 +24,4 @@ export const Results = React.memo(() => {
       )}
     </div>
   );
-});
+};

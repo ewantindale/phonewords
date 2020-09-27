@@ -14,7 +14,7 @@ const numpadKeys = {
   10: "CLEAR",
 };
 
-export const Numpad = React.memo(({ setNumericString, dispatch }) => {
+export const Numpad = ({ setNumericString, dispatch }) => {
   return (
     <div className={styles.numpad}>
       {Object.keys(numpadKeys).map((num) => (
@@ -38,4 +38,4 @@ export const Numpad = React.memo(({ setNumericString, dispatch }) => {
       ))}
     </div>
   );
-});
+};
