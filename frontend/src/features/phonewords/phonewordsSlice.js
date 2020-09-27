@@ -9,6 +9,11 @@ export const phonewordsSlice = createSlice({
     results: [],
   },
   reducers: {
+    clear: (state) => {
+      state.error = "";
+      state.loading = false;
+      state.results = [];
+    },
     fetchResultsStart: (state) => {
       state.loading = true;
       state.error = "";
@@ -27,6 +32,7 @@ export const phonewordsSlice = createSlice({
 });
 
 export const {
+  clear,
   fetchResultsStart,
   fetchResultsSuccess,
   fetchResultsError,

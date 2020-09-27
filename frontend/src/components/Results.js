@@ -1,5 +1,5 @@
 import React from "react";
-import { Word } from "../Word/Word";
+import { Word } from "./Word";
 import { useSelector } from "react-redux";
 import styles from "./Results.module.css";
 

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
-
-import { Numpad } from "./components/Numpad/Numpad";
+import { InputField } from "./components/InputField";
+import { Numpad } from "./components/Numpad";
+import { Results } from "./components/Results";
 import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
-import { Results } from "./components/Results/Results";
-import { InputField } from "./components/InputField/InputField";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,9 +26,7 @@ const App = () => {
         <div className={styles.input}>
           <InputField numericString={numericString} />
           <div className={styles.error}>{error && error}</div>
-
           <Numpad setNumericString={setNumericString} />
-
           <button
             type="submit"
             className={styles.submit}
