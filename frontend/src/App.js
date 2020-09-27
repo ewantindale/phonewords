@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
-import { InputField } from "./components/InputField";
 import { Numpad } from "./components/Numpad";
 import { Results } from "./components/Results";
 import { fetchResultsAsync } from "./features/phonewords/phonewordsSlice";
@@ -24,9 +23,9 @@ const App = () => {
       <h1>Phonewords</h1>
       <div className={styles.inputWrapper}>
         <div className={styles.input}>
-          <InputField numericString={numericString} />
+          <div className={styles.inputField}>{numericString}</div>
           <div className={styles.error}>{error && error}</div>
-          <Numpad setNumericString={setNumericString} />
+          <Numpad setNumericString={setNumericString} dispatch={dispatch} />
           <button
             type="submit"
             className={styles.submit}

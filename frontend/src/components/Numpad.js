@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Numpad.module.css";
+import { clear } from "../features/phonewords/phonewordsSlice";
 
 const numpadKeys = {
   2: "abc",
@@ -13,7 +14,7 @@ const numpadKeys = {
   10: "CLEAR",
 };
 
-export const Numpad = React.memo(({ setNumericString }) => {
+export const Numpad = React.memo(({ setNumericString, dispatch }) => {
   return (
     <div className={styles.numpad}>
       {Object.keys(numpadKeys).map((num) => (
@@ -23,7 +24,10 @@ export const Numpad = React.memo(({ setNumericString }) => {
           onClick={
             num < 10
               ? () => setNumericString((v) => v + num)
-              : () => setNumericString("")
+              : () => {
+                  setNumericString("");
+                  dispatch(clear());
+                }
           }
           name={num}
         >

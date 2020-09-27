@@ -21,6 +21,17 @@
   margin-right: auto;
 }
 
+.inputField {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid white;
+  height: 50px;
+}
+
 .description {
   color: lightgrey;
 }
