@@ -40,4 +40,4 @@ cd backend
 yarn test
 ```
 
-<img src="./phonewords.png" width="50%"/>
+<img src="./phonewords.png" />
