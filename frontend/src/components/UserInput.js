@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResultsAsync } from "../features/phonewords/phonewordsSlice";
+import { fetchResultsAsync } from "../phonewordsSlice";
 import { Numpad } from "./Numpad";
 import styles from "./UserInput.module.css";
 

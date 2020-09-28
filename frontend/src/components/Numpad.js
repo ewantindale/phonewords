@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Numpad.module.css";
-import { clear } from "../features/phonewords/phonewordsSlice";
+import { clear } from "../phonewordsSlice";
 
 const numpadKeys = {
   2: "abc",
