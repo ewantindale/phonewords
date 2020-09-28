@@ -4,14 +4,14 @@ import axios from "axios";
 export const phonewordsSlice = createSlice({
   name: "phonewords",
   initialState: {
-    error: "",
     loading: false,
+    error: "",
     results: [],
   },
   reducers: {
     clear: (state) => {
-      state.error = "";
       state.loading = false;
+      state.error = "";
       state.results = [];
     },
     fetchResultsStart: (state) => {
@@ -21,8 +21,8 @@ export const phonewordsSlice = createSlice({
     },
     fetchResultsSuccess: (state, action) => {
       state.loading = false;
-      state.results = action.payload;
       state.error = "";
+      state.results = action.payload;
     },
     fetchResultsError: (state, action) => {
       state.loading = false;
