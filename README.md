@@ -39,3 +39,5 @@ Some backend tests are included
 cd backend
 yarn test
 ```
+
+<img src="./phonewords.png" width="50%"/>
