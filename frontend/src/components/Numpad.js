@@ -11,31 +11,31 @@ const numpadKeys = {
   7: "pqrs",
   8: "tuv",
   9: "wxyz",
-  10: "CLEAR",
 };
 
-export const Numpad = ({ setNumericString, dispatch }) => {
+export const Numpad = ({ dispatch, setNumericString }) => {
+  const handleClearButtonClick = () => {
+    dispatch(clear());
+    setNumericString("");
+  };
+
   return (
     <div className={styles.numpad}>
       {Object.keys(numpadKeys).map((num) => (
         <button
           key={num}
           className={styles.button}
-          onClick={
-            num < 10
-              ? () => setNumericString((v) => v + num)
-              : () => {
-                  setNumericString("");
-                  dispatch(clear());
-                }
-          }
+          onClick={() => setNumericString((v) => v + num)}
           name={num}
         >
-          {num < 10 ? <span className={styles.number}>{num}</span> : null}
+          <span className={styles.number}>{num}</span>
 
           <span className={styles.letters}>{numpadKeys[num]}</span>
         </button>
       ))}
+      <button className={styles.button} onClick={handleClearButtonClick}>
+        <span className={styles.clearText}>CLEAR</span>
+      </button>
     </div>
   );
 };
