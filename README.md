@@ -1,3 +1,5 @@
+(This was a coding task I did for an interview)
+
 # Phonewords
 
 This Node + React app takes a numeric string as an input and converts it to a list of possible [Phonewords](https://en.wikipedia.org/wiki/Phoneword)
